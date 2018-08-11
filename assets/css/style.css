@@ -1,0 +1,53 @@
+/* global styles */
+
+h1 {
+    margin: 20px;
+}
+
+/* IDs */
+
+#counterRow {
+    margin-top: 20px;
+    margin-bottom:20px;
+}
+
+#crystalRow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#randomNumber {
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  #currentScore {
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  #wins {
+    height: 100px;
+    border: 1px solid black;
+  }
+
+  #losses {
+    height: 100px;
+    border: 1px solid black;
+  }
+
+/* Classes */
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align:center;
+}
+
+.crystal-image {
+    width: 20%;
+    margin: 2.5%;
+    height: auto;
+  }
