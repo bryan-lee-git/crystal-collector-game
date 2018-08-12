@@ -24,10 +24,6 @@ $(document).ready(function() {
         return o;
       };
 
-    //testing shuffle
-    console.log(valueOptions);
-    console.log(shuffle(valueOptions));
-
     //function to shuffle both value options and crystal order
     function shuffleArrays() {
         shuffle(valueOptions);
@@ -88,40 +84,51 @@ $(document).ready(function() {
 
             //if your current total matches the target number exactly, they win the round
             if (currentTotal === targetNumber) {
+
                 //add to win count
-                wins++;
+                wins = wins + 1;
+
                 //reflect in wins counter window
                 $("#winsCount").text(wins);
+
                 //alert the player they have won the round
                 alert("You've won this round!")
+
                 //regenerate target number
                 numGen();
+
                 //regenterate crystals
                 crystalGen();
 
             //if the player's current total exceeds the target number, they lose the round
             } else if (currentTotal > targetNumber) {
+
                 //add to losses count
-                losses++;
+                losses = losses + 1;
                 $("#lossesCount").text(losses);
+
                 //alert the player they have lost
                 alert("You've lost this round!");
+
                 //regenerate target number
                 numGen();
+
                 //regenerate crystals
                 crystalGen();
+
             };
 
         });
 
     };
 
-    //click function for hiding instructions
+    //click function for hiding instructions to initialize game
     var instructions = $("#instructions");
     $(instructions).on("click", function () {
+        $("p").slideToggle(1000);
         //run initial crystal gen to display crystals assign values
         crystalGen();
-        $("p").slideToggle(1000);
+        
     });
 
 });
