@@ -5,7 +5,7 @@
 body {
     font-family: 'Stalinist One', cursive;
     background-image: url(../images/background-3.png);
-    background-position: bottom;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 140%;
@@ -106,8 +106,6 @@ h3 {
     margin: 2.5%;
     height: auto;
     cursor: url(../images/pick-axe-cursor.png), default;
-    box-shadow: 1px 1px 1px 1px;
-    border-radius: 10px;
     padding: 0.3%;
   }
 
