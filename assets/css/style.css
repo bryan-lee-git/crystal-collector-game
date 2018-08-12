@@ -5,16 +5,16 @@
 body {
     font-family: 'Stalinist One', cursive;
     background-image: url(../images/background-3.png);
-    background-position: center bottom;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 140%;
 }
 
 h1 {
-    margin-top: 35px;
-    margin-bottom: 20px;
-    font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: 4em;
     color: black;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -28,25 +28,31 @@ h1 {
     -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
     -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
     transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    word-spacing: 30px;
 }
 
 h3 {
     font-size: 25px;
-    margin-bottom: 10px;
-}
+    padding: 0;
 
-h4 {
-    font-size: 30px;
 }
 
 /* IDs */
 
-#counterRow {
-    min-height: 120px;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: transparent;
-    color: black;
+#instructions {
+    font-size:18px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px inset;
+    color: palevioletred;
+}
+
+#counterRow1 {
+    margin-top: 50px;
+    color: white;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
@@ -61,24 +67,25 @@ h4 {
     transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
+#counterRow2 {
+    color: white;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    text-shadow: 0 1px 0 rgb(204,204,204) , 0 2px 0 rgb(201,201,201) , 0 3px 0 rgb(187,187,187) , 0 4px 0 rgb(185,185,185) , 0 5px 0 rgb(170,170,170) , 0 6px 1px rgba(0,0,0,0.0980392) , 0 0 5px rgba(0,0,0,0.0980392) , 0 1px 3px rgba(0,0,0,0.298039) , 0 3px 5px rgba(0,0,0,0.2) , 0 5px 10px rgba(0,0,0,0.247059) , 0 10px 10px rgba(0,0,0,0.2) , 0 20px 20px rgba(0,0,0,0.14902) ;
+    -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    margin-bottom: 60px;
+}
+
 #crystalRow {
     padding: 20px;
-}
-
-#randomNumber {
-    height: 60px;
-}
-
-#currentScore {
-    height: 60px;
-}
-
-#wins {
-    height: 60px;
-}
-
-#losses {
-    height: 60px;
 }
 
 /* Classes */
@@ -88,7 +95,7 @@ h4 {
 }
 
 .container {
-    width: 100%;
+    width: 90%;
     max-height: 300px;
     margin: 0 auto;
     text-align:center;
@@ -99,16 +106,42 @@ h4 {
     margin: 2.5%;
     height: auto;
     cursor: url(../images/pick-axe-cursor.png), default;
+    box-shadow: 1px 1px 1px 1px;
+    border-radius: 10px;
+    padding: 0.3%;
   }
 
   /* Media Queries */
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 680px) {
     h3 {
-        font-size: 20px;
+        font-size: 18px;
+        width: 50%;
+        float: left;
     }
-
     h1 {
-        margin-bottom: -10px;
+        font-size:26px;
+        line-height: 1.6;
     }
+    .crystal-image {
+        width: 17%;
+        margin:4%;
+        height: auto;
+    }
+    #counterRow {
+        margin-top: 0px;
+    }
+    #instructions {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+      h3 {
+          clear:both;
+          float: none;
+          width: 100%;
+      }
   }

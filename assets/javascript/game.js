@@ -92,4 +92,9 @@ $(document).ready(function() {
 
     });
 
+    var instructions = $("#instructions");
+    $(instructions).on("click", function () {
+        $("p").slideToggle(1000);
+    })
+
 });
