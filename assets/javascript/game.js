@@ -22,7 +22,7 @@ $(document).ready(function() {
           o.unshift(o.splice(index, 1)[0])
         }
         return o;
-      }
+      };
 
     //testing shuffle
     console.log(valueOptions);
@@ -59,9 +59,6 @@ $(document).ready(function() {
             //for each value in the valueOptions array, create an img tag for a crystal
             var crystalImage = $("<img class='crystal-image'>");
 
-            crystalImage.attr("data-crystalValue", 0);
-
-
             //each imageCrystal will be given a src link to the crystal image from the array
             crystalImage.attr("src", crystals[z]);
 
@@ -72,52 +69,55 @@ $(document).ready(function() {
             //add each crystal into the #crystals area at the end of the last
             $("#crystals").append(crystalImage);
 
-        }
+        };
+
+        //on click function to add value to current total as gems are clicked
+        $("img.crystal-image").on("click", function() {
+
+            //define value for crystal value
+            var crystalValue = ($(this).attr("data-crystalValue"));
+            crystalValue = parseInt(crystalValue);
+
+            //add clicked crystal value to current total
+            currentTotal += crystalValue;
+
+            //update total in DOM
+            $("#currentTotal").text(currentTotal);
+
+            //if, else if logic for game win/lose scenarios
+
+            //if your current total matches the target number exactly, they win the round
+            if (currentTotal === targetNumber) {
+                //add to win count
+                wins++;
+                //reflect in wins counter window
+                $("#winsCount").text(wins);
+                //alert the player they have won the round
+                alert("You've won this round!")
+                //regenerate target number
+                numGen();
+                //regenterate crystals
+                crystalGen();
+
+            //if the player's current total exceeds the target number, they lose the round
+            } else if (currentTotal > targetNumber) {
+                //add to losses count
+                losses++;
+                $("#lossesCount").text(losses);
+                //alert the player they have lost
+                alert("You've lost this round!");
+                //regenerate target number
+                numGen();
+                //regenerate crystals
+                crystalGen();
+            };
+
+        });
+
     };
 
     //run initial crystal gen to display crystals assign values
     crystalGen();
-
-    //on click function to add value to current total as gems are clicked
-    $(".crystal-image").on("click", function() {
-
-        //define value for crystal value
-        var crystalValue = ($(this).attr("data-crystalValue"));
-        crystalValue = parseInt(crystalValue);
-
-        //add clicked crystal value to current total
-        currentTotal += crystalValue;
-
-        //update total in DOM
-        $("#currentTotal").text(currentTotal);
-
-        //if, else if logic for game win/lose scenarios
-
-        //if your current total matches the target number exactly, they win the round
-        if (currentTotal === targetNumber) {
-            //add to win count
-            wins++;
-            //reflect in wins counter window
-            $("#winsCount").text(wins);
-            //alert the player they have won the round
-            alert("You've won this round!")
-            //regenerate target number
-            numGen();
-            crystalGen();
-
-        //if the player's current total exceeds the target number, they lose the round
-        } else if (currentTotal > targetNumber) {
-            //add to losses count
-            losses++;
-            $("#lossesCount").text(losses);
-            //alert the player they have lost
-            alert("You've lost this round!");
-            //regenerate target number
-            numGen();
-            crystalGen();
-        } 
-
-    });
 
     //click function for hiding instructions
     var instructions = $("#instructions");
