@@ -116,12 +116,11 @@ $(document).ready(function() {
 
     };
 
-    //run initial crystal gen to display crystals assign values
-    crystalGen();
-
     //click function for hiding instructions
     var instructions = $("#instructions");
     $(instructions).on("click", function () {
+        //run initial crystal gen to display crystals assign values
+        crystalGen();
         $("p").slideToggle(1000);
     });
 
