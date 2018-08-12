@@ -33,7 +33,7 @@ $(document).ready(function() {
     //generate the random number the user will try to match
 
     var numGen = function () {
-        targetNumber = Math.floor(10 + Math.random() * 60);
+        targetNumber = Math.floor(20 + Math.random() * 60);
         console.log(targetNumber);
         $("#randomNum").text(targetNumber);
         currentTotal = 0;
@@ -41,12 +41,10 @@ $(document).ready(function() {
     }
 
     //run numGen function
+    numGen(); 
 
-    numGen();    
     //set variables to the appropriate areas in the html
-
     //for each value in the valueOptions array, create an img tag for a crystal
-
     for (var i = 0; i < valueOptions.length; i++) {
         var crystalImage = $("<img>");
 
@@ -58,7 +56,7 @@ $(document).ready(function() {
 
         // Each crystalImage will be given a data attribute called data-crystalValue.
         // This data attribute will be set equal to the array value.
-        crystalImage.attr("data-crystalvalue", valueOptions[i]);
+        crystalImage.attr("data-crystalvalue", valueOptions[Math.floor(Math.random() * valueOptions.length)]);
 
         //add each crystal into the #crystals area at the end of the last
         $("#crystals").append(crystalImage);
@@ -68,30 +66,27 @@ $(document).ready(function() {
     $(".crystal-image").on("click", function() {
 
         var crystalValue = ($(this).attr("data-crystalvalue"));
-
         crystalValue = parseInt(crystalValue);
-
         currentTotal += crystalValue;
-
         $("#currentTotal").text(currentTotal);
 
         //if, else if for game win/lose logic
         //if your current total matches the target number exactly, they win the round
         if (currentTotal === targetNumber) {
-            //alert the player they have won
-            alert("You Win!");
-            //add to win count
             wins++;
+            //add to win count
             $("#winsCount").text(wins);
+            //alert the player they have won
+            alert("You've won this round!")
             numGen();
 
         //if the player's current total exceeds the target number, they lose the round
         } else if (currentTotal > targetNumber) {
-            //alert the player they have lost
-            alert("You Lose!");
             //add to losses count
             losses++;
             $("#lossesCount").text(losses);
+            //alert the player they have lost
+            alert("You've lost this round!");
             numGen();
         }
 
