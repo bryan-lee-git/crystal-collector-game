@@ -1,4 +1,5 @@
 //begin game program code
+
 $(document).ready(function() {
     //array for crystal images, variables for current total, wins, losses
     var valueOptions = [3, 5, 7, 10];
@@ -21,16 +22,19 @@ $(document).ready(function() {
     }
     //run intial numGen function
     numGen(); 
+    //shuffle value options and crystal order
+    shuffle(valueOptions);
+    shuffle(crystals);
     //set variables to the appropriate areas in the html
     for (var i = 0; i < valueOptions.length; i++) {
         //for each value in the valueOptions array, create an img tag for a crystal
         var crystalImage = $("<img>");
         //add style class to all img tags
         crystalImage.addClass("crystal-image");
-        // Each imageCrystal will be given a src link to the crystal image from the 
+        //each imageCrystal will be given a src link to the crystal image from the 
         crystalImage.attr("src", crystals[i]);
-        // Each crystalImage will be given a data attribute called data-crystalValue.
-        // This data attribute will be set equal to the array value.
+        //each crystalImage will be given a data attribute called data-crystalValue.
+        //this data attribute will be set equal to the array value.
         crystalImage.attr("data-crystalvalue", valueOptions[i]);
         //add each crystal into the #crystals area at the end of the last
         $("#crystals").append(crystalImage);
@@ -52,9 +56,11 @@ $(document).ready(function() {
             $("#winsCount").text(wins);
             //alert the player they have won
             alert("You've won this round!")
-            //reshuffle valueOptions
+            //reshuffle value options
             shuffle(valueOptions);
-            //regenerate new number
+            //reshuffle crystals
+            shuffle(crystals);
+            //regenerate target number
             numGen();
         //if the player's current total exceeds the target number, they lose the round
         } else if (currentTotal > targetNumber) {
@@ -65,6 +71,8 @@ $(document).ready(function() {
             alert("You've lost this round!");
             //reshuffle value options
             shuffle(valueOptions);
+            //reshuffle crystals
+            shuffle(crystals);
             //regenerate target number
             numGen();
         }
