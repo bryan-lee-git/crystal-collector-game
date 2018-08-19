@@ -30,6 +30,8 @@ $(document).ready(function() {
         shuffle(crystals);
     };
 
+
+
     //function to generate the random number the user will try to match
     function numGen () {
         targetNumber = Math.floor(20 + Math.random() * 60);
